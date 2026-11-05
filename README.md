@@ -17,7 +17,7 @@ Skills learned:
 
 - **main.py** – Entry point that coordinates the stock-checking workflow and connects all modules.
 - **config.py** – Loads environment variables from `.env` and manages application settings, such as store URLs and SMTP credentials.
-- **utils.py** – Contains helper functions for saving and loading data, including previously scraped product information stored in JSON files.
+- **utils.py** – Contains reusable helper functions for saving and loading data.
 - **scraper.py** – Scrapes product pages from the local store and extracts product information using HTML parsing and regex.
 - **comparer.py** – Compares newly scraped stock information against previously saved JSON data to identify relevant stock changes.
 - **composer.py** – Collects the relevant product information and renders an HTML email using the Jinja2 template.
