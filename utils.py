@@ -3,9 +3,10 @@ from datetime import date
 
 
 def load_wishlist(file_name="wishlist.txt"):
-        with open(file_name, 'r',) as file:
-            cards = [line.strip() for line in file if line.strip()]
-            return cards
+    with open(file_name, 'r',) as file:
+        cards = [line.strip() for line in file if line.strip()]
+        return cards
+
 
 def save_info_to_json(product_info, file_name="unnamed_info.json"):
     with open(file_name, 'w') as file:
@@ -23,15 +24,12 @@ def load_json(file_name):
     return loaded_file
 
 
-
-
 def save_mail_html(message, file_name=f"notification_{date.today()}.html"):
     with open(file_name, "w") as file:
         file.write(message)
 
 
-# Consolidate duplicate functions into reusable parts:
-# Format, return txt
+# Printing functions for during testing:
 def format_stock_info(collected_info):
     lines = []
     for info in collected_info:
@@ -42,9 +40,6 @@ def format_stock_info(collected_info):
     return "\n".join(lines)
 
 
-# Format print txt, consolidate with previous
-
-
 def print_stock(collected_products_info):
     for info in collected_products_info:
         in_stock = "✓" if info["stock"] > 0 else "✗"
@@ -52,11 +47,8 @@ def print_stock(collected_products_info):
             f"{in_stock} ID:{info['id']:6} {info['name']:30} ({info['set']:4}) - €{info['price']:6} - Stock: {info['stock']}"
         )
 
-
 def print_info(filtered_product_info, selection="undefined"):
-
     print(f"Card updates for {selection} selection")
-
     for product in filtered_product_info:
         print(f"Name: {product["name"]}")
         print(f"Price: {product["price"]}")
